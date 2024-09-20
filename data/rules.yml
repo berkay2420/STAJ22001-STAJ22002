@@ -1,0 +1,18 @@
+version: "3.1"
+
+rules:
+  - rule: Greet and ask first question
+    steps:
+      - action: action_reset_all_slots
+      - intent: user_first_greet
+      - action: utter_first_question
+
+  - rule: Out of scope questions rule
+    steps:
+      - intent: out_of_scope
+      - action: action_generate_out_of_scope_response
+  
+  - rule: reset all slots
+    steps:
+      - intent: session_restart
+      - action: action_reset_all_slots

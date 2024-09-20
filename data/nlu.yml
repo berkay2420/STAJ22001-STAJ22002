@@ -1,0 +1,188 @@
+version: "3.1"
+nlu:
+- intent: user_first_greet
+  examples: |
+    - Merhaba
+    - Selam
+    - Hey
+    - Nasılsın
+    - merhaba selam
+    - bilgi almak istiyorum
+    - INOSENS ile mi görüşüyorum
+    - yardımcı olabilir misiniz
+    - merhaba
+    - merhaba bot
+    - selam bot
+    - inosens selam
+    - merhaba inosens bot
+
+- intent: user_choice_option1
+  examples: |
+    - Ürün ve çözümler hakkında bilgi almak istiyorum
+    - Ürün ve çözümler
+    - Option 1
+
+- intent: user_choice_projeler
+  examples: |
+    - Projeler hakkında bilgi almak istiyorum
+    - Projeler
+    - Option 2
+
+- intent: user_choice_iletisim
+  examples: |
+    - İletişim bilgilerini almak istiyorum
+    - İletişim
+    - Option 3
+  
+
+- intent: user_choice_kariyer
+  examples: |
+    - Kariyer olanakları hakkında bilgi almak istiyorum
+    - Kariyer
+    - Option 4
+
+- intent: user_choice_bilisim_tekno
+  examples: |
+    - Bilişim teknolojileri hakkında bilgi almak istiyorum
+    - Bilişim Teknolojileri
+    - Option 1
+
+- intent: user_choice_saglik_tekno
+  examples: |
+    - Sağlık teknolojileri hakkında bilgi almak istiyorum
+    - Sağlık Teknolojileri
+    - Option 2
+
+- intent: user_choice_danismanlik
+  examples: |
+    - Danışmanlık hizmetleri hakkında bilgi almak istiyorum
+    - Danışmanlık Hizmetleri
+    - Option 3
+
+- intent: user_choice_F4ITECH
+  examples: |
+    - F4ITECH projesi hakkında bilgi almak istiyorum
+    - F4ITECH
+    - Option 1
+
+- intent: user_choice_PREVLA
+  examples: |
+    - PREVLA projesi hakkında bilgi almak istiyorum
+    - PREVLA
+    - Option 2
+
+- intent: user_choice_CAPE
+  examples: |
+    - CAPE projesi hakkında bilgi almak istiyorum
+    - CAPE
+    - Option 3
+
+- intent: user_choice_IMENTOR
+  examples: |
+    - I-Mentor projesi hakkında bilgi almak istiyorum
+    - I-Mentor
+    - Option 4
+
+- intent: user_choice_SINTRA
+  examples: |
+    - SINTRA projesi hakkında bilgi almak istiyorum
+    - SINTRA
+    - Option 5
+
+- intent: user_choice_SOCFAJ
+  examples: |
+    - SOCFAJ projesi hakkında bilgi almak istiyorum
+    - SOCFAJ
+    - Option 6
+
+- intent: affirm
+  examples: |
+    - evet
+    - doğru
+    - kesinlikle
+
+- intent: deny
+  examples: |
+    - hayır
+    - değil
+    - istemiyorum
+
+- intent: out_of_scope
+  examples: |
+    - Saat Kaç?
+    - Ben neredeyim?
+    - Google
+    - Arama yap
+    - Son haberler
+    - hesapla
+    - 30+30 kaçtır?
+    - yaş hesapla
+    - bugün günlerden ne
+    - Bugün hava nasıl?
+    - Burada en yakın restoran nerede?
+    - Hangi takımı tutuyorsun?
+    - Film önerir misin?
+    - Bana bir şaka yapar mısın?
+    - Favori kitabın nedir?
+    - En sevdiğin renk hangisi?
+    - Şu an saat kaç?
+    - En yakın eczane nerede?
+    - Hangi müziği dinlemeliyim?
+    - galatasaray fenerbahçe beşiktaş 
+    - futbol
+    - Favori rengin nedir?
+    - En sevdiğin yemek ne?
+    - Hangi müzik türünü seversin?
+    - Son tatilin nereye idi?
+    - Borsa ne durumda?
+    - Hangi dizileri izliyorsun?
+    - Yarın hangi etkinlikler var?
+    - Bana bir fıkra anlatır mısın?
+    - Çocukken en sevdiğin oyun neydi?
+    - Bugün kaç kalori yaktım?
+    - Bu hafta sonu hava nasıl olacak?
+    - Bugün hangi haberler var?
+    - Hangi oyunları oynuyorsun?
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+
+- intent: users_request_about_products_and_solutions
+  examples: |
+    - Aklımda şöyle bir fikir var bunu nasıl gerçekleştirebilirim?
+    - Şu projeniz için uyumlu bir proje gerçekeştiriyorum
+    - Ürünlerinizi kullanarak nasıl bir çözüm oluşturabilirim?
+    - Projemde kullanabileceğim ürünleriniz nelerdir?
+    - Şirketinizin sunduğu çözümler hakkında bilgi alabilir miyim?
+    - Şu konuda bir çözüm arıyorum, ürünleriniz bana nasıl yardımcı olabilir?
+    - Hangi ürünlerinizi kullanarak bu fikri hayata geçirebilirim?
+    - Projemi geliştirmek için hangi hizmetlerinizi kullanabilirim?
+    - Ürünlerinizi kullanarak bu sorunu nasıl çözebilirim?
+    - Bana uygun bir çözüm öneriniz var mı? 
+    
+    
+    
+
+- intent: mood_great
+  examples: |
+    - harikayım
+    - çok iyiyim
+    - harika
+
+- intent: mood_unhappy
+  examples: |
+    - kötü hissediyorum
+    - mutsuzum
+    - moralim bozuk
+
+- intent: bot_challenge
+  examples: |
+    - sen insan mısın?
+    - bot musun?
+    - sen kimsin?
+
+- intent: goodbye
+  examples: |
+    - hoşça kal
+    - görüşürüz
+    - güle güle

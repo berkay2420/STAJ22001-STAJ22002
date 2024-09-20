@@ -1,0 +1,195 @@
+version: "3.1"
+
+intents:
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - user_first_greet
+  - user_choice_option1
+  - user_choice_projeler
+  - user_choice_iletisim
+  - user_choice_kariyer
+  - user_choice_bilisim_tekno
+  - user_choice_saglik_tekno
+  - user_choice_danismanlik
+  - user_choice_F4ITECH
+  - user_choice_PREVLA
+  - user_choice_CAPE
+  - user_choice_IMENTOR
+  - user_choice_SINTRA
+  - user_choice_SOCFAJ
+  - out_of_scope
+  - session_started
+  - session_restart
+  - users_request_about_products_and_solutions
+
+entities:
+  - email
+  - user_message
+  - email_confirmation
+
+slots:
+  email:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: submit_user_message_form
+            requested_slot: email
+  email_confirmation:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: submit_user_message_form
+            requested_slot: email_confirmation  
+  user_message:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+        - active_loop: submit_user_message_form
+          requested_slot: user_message
+
+  num_user_attempts:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: custom
+
+forms:
+  submit_user_message_form:
+    required_slots:
+      - email
+      - email_confirmation
+      - user_message
+
+
+
+responses:
+  utter_merhaba:
+    - text: "Merhaba Hoş Geldiniz"
+  utter_first_question:
+    - text: "Merhaba INOSENS Chat-Bot'una hoş geldiniz. Size aşağıdaki başlıklardan hangisinde yardımcı olmamı istersiniz?"
+      buttons:
+        - title: "Ürün ve çözümler"
+          payload: "/user_choice_option1"
+        - title: "Projeler"
+          payload: "/user_choice_projeler"
+        - title: "İletişim"
+          payload: "/user_choice_iletisim"
+        - title: "Kariyer"
+          payload: "/user_choice_kariyer"
+  
+  utter_ask_for_users_request: 
+    - text: "Ne tür bir ürün ve çözüm konusunda yardımcı olmamı istersiniz? Lütfen isteğinizi belirt misiniz?"
+
+  utter_option1_question:
+    - text: "INOSENS olarak sunduğumuz aşağıdaki hizmetlerden hangisi hakkında bilgi almak istersiniz?"
+      buttons:
+        - title: "Bilişim Teknolojileri"
+          payload: "/user_choice_bilisim_tekno"
+        - title: "Sağlık Teknolojileri"
+          payload: "/user_choice_saglik_tekno"
+        - title: "Danışmanlık Hizmetleri"
+          payload: "/user_choice_danismanlik"
+
+  utter_bilisim_tekno:
+    - text: "Bilişim teknolojileri günümüz dünyasında oldukça önemlidir. Bu konuda çalışmalarımızı incelemek için [sitemizi](https://inosens.com.tr/) ziyaret edebilirsiniz."
+
+  utter_saglik_tekno:
+    - text: "Firmamız sağlık alanı da dahil olmak üzere birçok çözüm üretmektedir. Ürettiğimiz çözümlere yapay zeka teknolojilerini de entegre etmekteyiz. Detaylı bilgi ve projelerimizi görmek için [sitemizi](https://inosens.com.tr/) ziyaret edebilirsiniz."
+
+  utter_danismanlik:
+    - text: "Firmamız bir çok konuda danışmanlık hizmeti vermektedir İnternet sitemize ulaşmak için [buraya](https://inosens.com.tr/) tıklayınız."
+
+  utter_kariyer:
+    - text: "INOSENS kariyer olanakları hakkında daha fazla bilgi almak için [sitemizi](https://inosens.com.tr/) ziyaret edebilirsiniz."
+
+  utter_ask_email:
+    - text: "Lütfen daha sonra sizinle iletişime geçmemiz için e-posta adresinizi giriniz"
+      
+  
+  utter_ask_email_confirmation:
+    - text: "Bu E-Mail Adresi Size mi ait {email}"
+      buttons:
+        - title: "Evet"
+          payload: "Yes"
+        - title: "Hayir"
+          payload: "No"
+
+  utter_message_submitted:
+    - text: "Mesajınız alınmıştır sizinle en kısa sürede iletişime geçilecektir."
+
+  utter_ask_user_message:
+    - text: "İletmek istediğiniz mesajınızı giriniz"
+
+  utter_iletisim_goobye_message:
+    - text: "Mesajınız alınmıitıştır, sizinle en kısa zamanda iletişime geçilecektir"
+
+  utter_projeler_question:
+    - text: "Aşağıda listelenilen mevcut projelerimiz arasından hangisi hakkında bilgi almak istersiniz?"
+      buttons:
+        - title: "F4ITECH"
+          payload: "/user_choice_F4ITECH"
+        - title: "PREVLA"
+          payload: "/user_choice_PREVLA"
+        - title: "CAPE"
+          payload: "/user_choice_CAPE"
+        - title: "SINTRA"
+          payload: "/user_choice_SINTRA"
+        - title: "I-Mentor"
+          payload: "/user_choice_IMENTOR"
+        - title: "SOCFAJ"
+          payload: "/user_choice_SOCFAJ"
+
+  utter_F4ITECH:
+    - text: "F4ITECH PROJEMIZ HAKKINDA BİLGİLER"
+  utter_PREVLA:
+    - text: "PREVLA PROJEMIZ HAKKINDA BİLGİLER"
+  utter_CAPE:
+    - text: "CAPE PROJEMIZ HAKKINDA BİLGİLER"
+  utter_SINTRA:
+    - text: "SINTRA PROJEMIZ HAKKINDA BİLGİLER"
+  utter_IMENTOR:
+    - text: "IMENTOR PROJEMIZ HAKKINDA BİLGİLER"
+  utter_SOCFAJ:
+    - text: "SOCFAJ PROJEMIZ HAKKINDA BİLGİLER"
+
+  utter_ask_continuance_question:
+    - text: "Farklı Bir Proje Hakkında da bilgi almak ister misiniz?"
+
+  utter_out_of_scope:
+    - text: "Bu konu hakkında bilgi veremem. Başka bir konuda yardımcı olabilir miyim?"
+    - text: "Sorunuzu anlayamadım tekrardan yazabilir misiniz?"
+    - text: "Bu konuda bilgiye sahip değilim. Başka bir konuda size nasıl yardımcı olabilirim?"
+    - text: "Bu soruya yanıt veremem. Başka bir konuda size nasıl yardımcı olabilirim?"
+
+  utter_final_message:
+    - text: "Bizi Tercih ettiğiniz için teşekkürler iyi günler"
+
+  utter_goodbye:
+    - text: "bizi tercih ettiğiniz için teşekkürler"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+  
+  
+
+actions:
+  - action_end_conversation
+  - action_save_conversation
+  - action_process_user_message
+  - action_reset_all_slots
+  - action_get_user_email
+  - validate_submit_user_message_form
+  - action_restart
+  - action_generate_out_of_scope_response
+  - action_generate_suggestion_response
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
