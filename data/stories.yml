@@ -1,0 +1,119 @@
+version: "3.1"
+
+stories:
+- story: main path
+  steps:
+    - intent: user_first_greet
+    - action: utter_first_question
+
+- story: user_chooses_option1
+  steps:
+    - intent: user_choice_option1
+    - action: utter_ask_for_users_request
+    - intent: users_request_about_products_and_solutions
+    - action: action_generate_suggestion_response
+
+- story: user_chooses_projeler
+  steps:
+    - intent: user_choice_projeler
+    - action: utter_projeler_question
+
+
+- story: user chooses kariyer
+  steps:
+    - intent: user_choice_kariyer
+    - action: utter_kariyer
+    - action: utter_final_message
+
+- story: User gives valid mail adress and submits message
+  steps:
+    - intent: user_choice_iletisim
+    - action: submit_user_message_form
+    - active_loop: submit_user_message_form
+    - slot_was_set:
+      - requested_slot: email
+    - slot_was_set:
+      - email: "berkay@gmail.com"
+    - slot_was_set:
+      - requested_slot: email_confirmation
+    - slot_was_set:
+      - email_confirmation: "Evet"
+    - slot_was_set:
+      - requested_slot: user_message
+    - slot_was_set:
+      - user_message: "Bu birkullanıcı mesajıdır"
+    - active_loop: null
+    - action: utter_message_submitted
+
+
+- story: bilisim_tekno selected
+  steps:
+    - intent: user_choice_bilisim_tekno
+    - action: utter_bilisim_tekno
+    - action: utter_final_message
+
+- story: saglik_tekno selected
+  steps:
+    - intent: user_choice_saglik_tekno
+    - action: utter_saglik_tekno
+    - action: utter_final_message
+
+- story: danismanlik selected
+  steps:
+    - intent: user_choice_danismanlik
+    - action: utter_danismanlik
+    - action: utter_final_message
+
+- story: F4ITECH selected
+  steps:
+    - intent: user_choice_F4ITECH
+    - action: utter_F4ITECH
+    - action: utter_ask_continuance_question
+    - intent: affirm
+    - action: utter_projeler_question
+
+- story: PREVLA selected
+  steps:
+    - intent: user_choice_PREVLA
+    - action: utter_PREVLA
+    - action: utter_ask_continuance_question
+    - intent: affirm
+    - action: utter_projeler_question
+
+
+- story: CAPE selected
+  steps:
+    - intent: user_choice_CAPE
+    - action: utter_CAPE
+    - action: utter_ask_continuance_question
+    - intent: affirm
+    - action: utter_projeler_question
+
+- story: IMENTOR selected
+  steps:
+    - intent: user_choice_IMENTOR
+    - action: utter_IMENTOR
+    - action: utter_ask_continuance_question
+    - intent: affirm
+    - action: utter_projeler_question
+
+- story: SINTRA selected
+  steps:
+    - intent: user_choice_SINTRA
+    - action: utter_SINTRA
+    - action: utter_ask_continuance_question
+    - intent: affirm
+    - action: utter_projeler_question
+
+- story: SOCFAJ selected
+  steps:
+    - intent: user_choice_SOCFAJ
+    - action: utter_SOCFAJ
+    - action: utter_ask_continuance_question
+    - intent: affirm
+    - action: utter_projeler_question
+
+- story: Continuance question denied
+  steps:
+    - intent: deny
+    - action: utter_final_message
